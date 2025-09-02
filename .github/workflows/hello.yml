@@ -1,4 +1,4 @@
-name: Hello World
+name: GitHub Workflow Demo
 on:
   push:
     branches: [ "main" ]
@@ -22,6 +22,12 @@ jobs:
             echo "Accessing environment variables using YAML syntax"
             echo "1. ${{ env.JOB_ENVIRONMENT_VARIABLE }}"
             echo "2. This flow was triggered by ${{ github.event_name }} event"
+  using-secret:
+    environment: GITHUB_ACTION_ENV
+    runs-on: ubuntu-latest
+    steps:
+      - name: Using Secret
+        run: echo "${{ secrets.FIRST_SECRET }}"
   setup-java:
     runs-on: ubuntu-latest
     steps:
