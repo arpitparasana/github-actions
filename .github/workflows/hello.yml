@@ -17,11 +17,11 @@ jobs:
         - run: |
             echo "Accessing environment variables using shell syntax"
             echo "1. $JOB_ENVIRONMENT_VARIABLE"
-            echo "2. $GITHUB_EVENT_NAME"
+            echo "2. This flow was triggered by $GITHUB_EVENT_NAME event"
             echo "==--==--==--==--==--==--==--==--==--==--==--==--==--=="
             echo "Accessing environment variables using YAML syntax"
             echo "1. ${{ env.JOB_ENVIRONMENT_VARIABLE }}"
-            echo "2. ${{ env.GITHUB_EVENT_NAME }}"
+            echo "2. This flow was triggered by ${{ github.event_name }} event"
   setup-java:
     runs-on: ubuntu-latest
     steps:
