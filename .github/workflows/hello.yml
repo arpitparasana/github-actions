@@ -10,9 +10,18 @@ jobs:
         - run: echo Hello, world!
         - run: date
   print-env:
+    env:
+      JOB_ENVIRONMENT_VARIABLE: "Job environment variable"
     runs-on: ubuntu-latest
     steps:
-        - run: env | sort
+        - run: |
+            echo "Accessing environment variables using shell syntax"
+            echo "1. $JOB_ENVIRONMENT_VARIABLE"
+            echo "2. $GITHUB_EVENT_NAME"
+            echo "==--==--==--==--==--==--==--==--==--==--==--==--==--=="
+            echo "Accessing environment variables using YAML syntax"
+            echo "1. ${{ env.JOB_ENVIRONMENT_VARIABLE }}"
+            echo "2. ${{ env.GITHUB_EVENT_NAME }}"
   setup-java:
     runs-on: ubuntu-latest
     steps:
