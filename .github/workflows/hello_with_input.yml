@@ -3,13 +3,14 @@ name: Hello with Input
 on:
   workflow_dispatch:
     inputs:
-      user_name:
+      username:
         description: 'Name of the user'
         required: true
         default: 'World'
+run-name: Greeted ${{ github.event.inputs.username}}
 jobs:
   greet:
     runs-on: ubuntu-latest
     steps:
       - name: 'Greet User'
-        run: echo 'Hello ${{ github.event.inputs.user_name }}'
+        run: echo 'Hello ${{ github.event.inputs.username }}'
