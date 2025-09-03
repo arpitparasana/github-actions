@@ -1,0 +1,15 @@
+name: Hello with Input
+
+on:
+  workflow_dispatch:
+    inputs:
+      user_name:
+        description: 'Name of the user'
+        required: true
+        default: 'World'
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Greet User'
+        run: echo 'Hello ${{ github.event.inputs.user_name }}'
