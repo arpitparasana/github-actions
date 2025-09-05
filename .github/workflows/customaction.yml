@@ -1,0 +1,9 @@
+name: Custom action
+on: push
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: arpitparasana/custom-action@main
+      
