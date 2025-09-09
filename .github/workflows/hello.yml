@@ -36,4 +36,6 @@ jobs:
         with:
           java-version: 21
           distribution: adopt
+      - name: Checking java version
+        run: java -version
           
